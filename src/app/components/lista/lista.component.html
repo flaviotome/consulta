@@ -1,0 +1,20 @@
+<h2>Lista de Produtos:</h2>
+<div *ngFor="let i of listaDeProdutos">
+  <label> {{ i.productName }}</label>
+</div>
+
+<h2>Filtrar por categotia:</h2>
+<input type="radio" name="categorias" (change)="retornaTodos()" />
+<label> Todos</label>
+
+<div *ngFor="let i of listaCategoria">
+  <input
+    type="radio"
+    id="{{i._id}}"
+    name="categorias"
+    value="{{ i.categoryName }}"
+    [(ngModel)]="filtro"
+    (change)="filtraPorCategoria()"
+  />
+  <label> {{ i.categoryName }}</label>
+</div>
